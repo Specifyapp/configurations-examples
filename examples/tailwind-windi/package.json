@@ -1,5 +1,5 @@
 {
-  "name": "tailwind-windi",
+  "name": "tailwind-environment",
   "version": "1.0.0",
   "scripts": {
     "extract:theme": "specify pull -C theme/specifyrc.js",
