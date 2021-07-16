@@ -1,0 +1,17 @@
+# Global
+.env
+.DS_Store
+**/node_modules
+
+# VSC Specific
+**/.vscode
+**/.history
+
+# Log files
+**/npm-debug.log*
+**/yarn-debug.log*
+**/yarn-error.log*
+
+# Examples
+**/tailwind-theme.js
+**/public
