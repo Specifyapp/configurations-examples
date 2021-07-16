@@ -1,0 +1,14 @@
+{
+  "name": "tailwind-windi",
+  "version": "1.0.0",
+  "scripts": {
+    "extract:theme": "specify pull -C theme/specifyrc.js",
+    "extract:theme-fonts": "specify pull -C theme-with-fonts/specifyrc.js",
+    "extract:theme-fonts-json": "specify pull -C theme-with-fonts-json/specifyrc.json"
+  },
+  "dependencies": {
+    "@specifyapp/cli": "^0.0.54",
+    "dotenv": "^10.0.0"
+  },
+  "devDependencies": {}
+}
