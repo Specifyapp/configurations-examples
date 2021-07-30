@@ -1,46 +1,48 @@
 # Tailwind / Windi
 
 ## What is this directory?
-
-Within this directory, you will find ready to use examples of specify parser pipeline configuration to generate the correct files to use the design tokens in a Tailwind/Windi environment.
+Find ready to use examples of Specify parser pipeline configurations to generate the correct files to use the design tokens in a Tailwind/Windi environment.
 There are several exemples you can copy/paste, being more or less complex.
 
 ## Available examples
-
-- `theme` > Only generates the theme file for Tailwind / Windi
-- `theme-with-fonts` > Generate the theme file + download and create the font assets file + create the css file that creates font-face for the font assets
-- `theme-with-fonts-json` > The same as `theme-with-fonts` but written in json format.
-- `theme-with-fonts-github` > The same as `theme-with-fonts-json` but with github specific options
+- `theme` > Only generate the theme file for Tailwind / Windi
+- `theme-with-fonts` > Generate the theme file + Download and create the font assets file + Create the CSS file that creates the `@font-face` rules for your font assets
+- `theme-with-fonts-json` > The same as `theme-with-fonts` but written in json format
+- `theme-with-fonts-github` > The same as `theme-with-fonts-json` but with Github specific options
 
 ## How to test the examples
 
-### theme and theme-with-fonts
+### theme / theme-with-fonts
 
-- In the root directory, there is a `.env.example`. Copy it in a `.env` file (`cp .env.example .env`) 
-- Put your data in the `.env`
-- In `examples/tailwind-windi`, launch `npm i` or `yarn`
-- In the same directory launch `npm run extract:theme` or `npm run extract:theme-fonts` (`yarn extract:theme` or `yarn extract:theme-fonts`)
+1. Create a `.env` file from the `.env.example` in the root directory: `cp .env.example .env`
+2. Put your data in the new `.env` file
+3. In `examples/tailwind-windi`, launch `npm i` or `yarn`
+4. In the same directory launch `npm run generate:theme` or `npm run generate:theme-fonts` (`yarn generate:theme` or `yarn generate:theme-fonts`)
 
 All the files will appear in the directory of the example you have selected.
 
 ### theme-with-fonts-json
 
-- In the `examples/tailwind-windi/theme-with-fonts-json`, complete the data of repository and personal access token
-- In `examples/tailwind-windi`, launch `npm i` or `yarn`
-- In the same directory launch `npm run extract:theme-fonts-json` (`yarn extract:theme-fonts-json`)
+1. In the `examples/tailwind-windi/theme-with-fonts-json`, complete the data of repository and personal access token
+2. In `examples/tailwind-windi`, launch `npm i` or `yarn`
+3. In the same directory launch `npm run generate:theme-fonts-json` (`yarn generate:theme-fonts-json`)
 
 All the files will appear in the directory `theme-with-fonts-json`.
 
 ### theme-with-fonts-github
 
-There is currently no way to easily test this. You will have to create a `.specifyrc.json` in a Github repository containing the content of our `theme-with-fonts-github/specifyrc.json` in it and link to Specify.
+1. Create a `.specifyrc.json` in a Github repository containing the content of our `theme-with-fonts-github/specifyrc.json` in it and link to Specify
+2. A pull request will be created by Specify containing your theme and your font assets.
 
 ## From example to project
+Satisfied with your test configuration? It's now time to use it into a real project.
 
-When you're satisfied with your testing, you can easily copy/paste the content of the file you have decided to use in your own project and use `npm run specify pull -C myfile` (`yarn specify pull -C myfile`) and the same content will appear in your own project.
+To do this:
+1. Copy your Specify configuration file and paste it inside your real project.
+2. Generate your theme by running: `npm run specify pull -C YOUR_CONIG_FILE` (`yarn specify pull -C YOUR_CONIG_FILE`)
+3. Use the generated files by Specify
 
 ## Parsers used in the examples
-
 - [to-tailwind](https://github.com/Specifyapp/parsers/tree/master/parsers/to-tailwind)
 - [convert-font](https://github.com/Specifyapp/parsers/tree/master/parsers/convert-font)
 - [to-css-font-import](https://github.com/Specifyapp/parsers/tree/master/parsers/to-css-font-import)
