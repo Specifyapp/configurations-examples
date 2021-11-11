@@ -1,5 +1,5 @@
 {
-  "name": "tailwind-environment",
+  "name": "vanilla-css-environment",
   "version": "1.0.0",
   "scripts": {
     "generate:theme": "specify pull -C theme/specifyrc.js",

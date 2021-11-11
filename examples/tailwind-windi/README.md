@@ -1,14 +1,18 @@
 # Tailwind / Windi
 
 ## What is this directory?
-Find ready to use examples of Specify parser pipeline configurations to generate the correct files to use the design tokens in a Tailwind/Windi environment.
+Find ready to use examples of Specify parser pipeline configurations to generate the correct files and design tokens in a Tailwind/Windi environment.
+
 There are several exemples you can copy/paste, being more or less complex.
 
 ## Available examples
-- `theme` > Only generate the theme file for Tailwind / Windi
-- `theme-with-fonts` > Generate the theme file + Download and create the font assets file + Create the CSS file that creates the `@font-face` rules for your font assets
-- `theme-with-fonts-json` > The same as `theme-with-fonts` but written in json format
-- `theme-with-fonts-github` > The same as `theme-with-fonts-json` but with Github specific options
+- `theme`: only generates the theme file for Tailwind / Windi
+- `theme-with-fonts`:
+  1. Generates the theme file
+  2. Download and create the font assets file
+  3. Create the CSS file containing your `@font-face` import rules for your font assets
+- `theme-with-fonts-json`: Same as `theme-with-fonts` but written in `json` format
+- `theme-with-fonts-github`: Same as `theme-with-fonts-json` but with Github specific options
 
 ## How to test the examples
 
