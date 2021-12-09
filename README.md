@@ -4,31 +4,42 @@
 
 Specify helps you unify your organization's brand identity at scale by collecting, storing and distributing design tokens and assets — automatically.
 
+See Specify as a design API helping organizations manage their branding within their design system.
 ## What is this repository?
 
-This repository helps you easily set up your Specify parser pipeline by supplying ready to use configurations on specific environments.
-With it, you can bootstrap your Specify pipeline in seconds and customize it to fit your needs.
+This repository helps you configure Specify and define a custom transformation pipeline for your design data. Find in this repository ready to use Specify configurations on specific environments (e.g. Style Dictionary, CSS Variables, Tailwind, Theme UI...).
 
-This example repository also shows how to combine and configure the parsers and show more real-world examples.
+Bootstrap pipelines to synchronize and transform your design tokens and assets in seconds.
+
+👉 Feel free to clone the repository to customize those configurations as you wish.
+
+This example repository helps you understand how to combine and configure Specify's parsers with real-world examples.
 
 ## How does it work?
 
-The `/examples` directory contains a directory for each environment. Those examples work independently and give you access to some commands to have the result of the examples they give.
-Each example environment supply a `README.md` to give you more context and more informations.
+The `/examples` directory contains a directory for each environment. Those examples work independently from each other. Each of them give you access to some commands to help you get the same output they present.
+All examples are detailed by their own `README.md`.
 
 ## What is the .env file?
-We recommend you to store and use your personal access token from an `.env` file.
-You will only be able to use this `.env` file inside a Specify configuration written in JavaScript.
+We recommend you to store and use your personal access token thanks to an `.env` file.
 
-However, Specify can have its configuration is JSON in the following cases:
-- If you want to
-- If your configuration is meant to be read used inside a Github repository.
+ℹ️ You will only be able to use this `.env` file inside a Specify configuration written in JavaScript.
 
-To try the examples, you need to:
-1. Setup a Specify repository
-2. Generate a personal access token
+However, Specify can have its configuration is JSON if:
+- You want to
+- Your configuration is meant to be used inside a Github repository
 
-So that you can try every examples only from a single repository and a single personal access token, the `.env` file is in the root directory and will be used in the examples.
+## How to try configuration examples?
+To try the provided examples, you need to:
+1. [Setup a Specify repository](https://help.specifyapp.com/en/articles/4722413-create-a-repository)
+2. [Generate a personal access token](https://help.specifyapp.com/en/articles/4722408-manage-your-paersonal-access-tokens)
+3. Clone this repo
+4. Create a `.env` file from the `.env.example` in the root directory: `cp .env.example .env`
+5. Update the new `.env` file by:
+  1. Setting the Specify repository you're pulling design data from using the following format `@yourspecifyorganisation/yourspecifyrepository`
+  2. Setting your personal access token
+
+You can now try all examples from this repository with a single personal access token.
 
 ## Environment examples available
 - [Tailwindcss / Windicss](https://github.com/Specifyapp/configurations-examples/tree/main/examples/tailwind-windi)

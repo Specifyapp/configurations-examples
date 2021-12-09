@@ -2,9 +2,8 @@
   "name": "vanilla-css-environment",
   "version": "1.0.0",
   "scripts": {
-    "generate:theme": "specify pull -C theme/specifyrc.js",
-    "generate:theme-fonts": "specify pull -C theme-with-fonts/specifyrc.js",
-    "generate:theme-fonts-json": "specify pull -C theme-with-fonts-json/specifyrc.json"
+    "generate:all-design-tokens": "specify pull -C all-design-tokens/specifyrc.js",
+    "generate:all-design-tokens-json": "specify pull -C all-design-tokens-json/specifyrc.json"
   },
   "dependencies": {
     "@specifyapp/cli": "^0.0.56",
