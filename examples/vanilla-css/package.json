@@ -2,8 +2,9 @@
   "name": "vanilla-css-environment",
   "version": "1.0.0",
   "scripts": {
-    "generate:all-design-tokens": "specify pull -C all-design-tokens/specifyrc.js",
-    "generate:all-design-tokens-json": "specify pull -C all-design-tokens-json/specifyrc.json"
+    "generate:colors-and-text-styles": "specify pull -C colors-and-text-styles/specifyrc.js",
+    "generate:all-design-tokens-and-assets": "specify pull -C all-design-tokens-and-assets/specifyrc.js",
+    "generate:all-design-tokens-and-assets-json": "specify pull -C all-design-tokens-and-assets-json/specifyrc.json"
   },
   "dependencies": {
     "@specifyapp/cli": "^0.0.56",

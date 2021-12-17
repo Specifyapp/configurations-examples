@@ -1,7 +1,7 @@
 # Tailwind / Windi
 
 ## What is this directory?
-This directory contains ready to use examples of Specify configurations generating a Tailwind theme. The generated theme is also  compatible with [Windi](https://windicss.org/guide/configuration.html).
+This directory contains ready to use examples of Specify configurations generating a Tailwind theme. The generated theme is also compatible with [Windi](https://windicss.org/guide/configuration.html).
 
 Some examples are more complex than others. Feel free to update them as you wish.
 
@@ -36,9 +36,10 @@ All the files will appear in the directory of the example you have selected.
 All the files will appear in the directory `theme-with-fonts-json`.
 
 ### theme-with-fonts-github
-
-1. Create a `.specifyrc.json` in a Github repository containing the content of our `theme-with-fonts-github/specifyrc.json` in it and link to Specify
-2. A pull request will be created by Specify containing your theme and your font assets.
+1. Check Specify has access to your GitHub repository. See [our dedicated article](https://help.specifyapp.com/en/articles/4722440-add-github-as-a-destination).
+2. Create a `.specifyrc.json` in your GitHub repository set as a destination to your Specify repository.
+3. Paste the content of the `theme-with-fonts-github/.specifyrc.json` in it.
+4. A pull request will be created by Specify containing your design tokens and assets.
 
 ## From example to project
 Satisfied with your test configuration? It's now time to use it into a real project.

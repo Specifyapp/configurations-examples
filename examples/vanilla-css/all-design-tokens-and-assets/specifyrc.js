@@ -7,12 +7,6 @@ const designDataPath = 'all-design-tokens/assets';
 // transforming them as CSS Custom Properties
 const commonCssCustomPropertiesParser = [
   {
-    name: 'sort-by',
-    options: {
-      keys: ['name'],
-    },
-  },
-  {
     name: 'to-css-custom-properties',
   },
 ];
@@ -28,12 +22,67 @@ const colorsRule = [
   },
 ];
 
+const bordersRule = [
+  {
+    name: 'Design Tokens / Borders',
+    path: `${designDataPath}/styles/variables/borders.css`,
+    filter: {
+      types: ['border'],
+    },
+    parsers: commonCssCustomPropertiesParser,
+  },
+];
+
+const depthsRule = [
+  {
+    name: 'Design Tokens / Depths (Z-Index)',
+    path: `${designDataPath}/styles/variables/depths.css`,
+    filter: {
+      types: ['depth'],
+    },
+    parsers: commonCssCustomPropertiesParser,
+  },
+];
+
+const durationsRule = [
+  {
+    name: 'Design Tokens / Durations',
+    path: `${designDataPath}/styles/variables/durations.css`,
+    filter: {
+      types: ['duration'],
+    },
+    parsers: commonCssCustomPropertiesParser,
+  },
+];
+
+const gradientsRule = [
+  {
+    name: 'Design Tokens / Gradients',
+    path: `${designDataPath}/styles/variables/gradients.css`,
+    filter: {
+      types: ['gradient'],
+    },
+    parsers: commonCssCustomPropertiesParser,
+  },
+];
+
 const measurementsRule = [
   {
     name: 'Design Tokens / Measurements',
     path: `${designDataPath}/styles/variables/measurements.css`,
     filter: {
       types: ['measurement'],
+    },
+    parsers: commonCssCustomPropertiesParser,
+  },
+];
+
+const shadowsRule = [
+  {
+    name: 'Design Tokens / Shadows',
+    path: `${designDataPath}/styles/variables/shadows.css`,
+    filter: {
+      types: ['shadow'],
     },
     parsers: commonCssCustomPropertiesParser,
   },
@@ -102,7 +151,12 @@ module.exports = {
   personalAccessToken: process.env.PERSONAL_ACCESS_TOKEN,
   rules: [
     ...colorsRule,
+    ...bordersRule,
+    ...depthsRule,
+    ...durationsRule,
+    ...gradientsRule,
     ...measurementsRule,
+    ...shadowsRule,
     ...textStylesRule
   ],
 };
