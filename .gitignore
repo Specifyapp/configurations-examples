@@ -3,9 +3,12 @@
 .DS_Store
 **/node_modules
 
-# VSC Specific
+# VSC specific
 **/.vscode
 **/.history
+
+# Jetbrains specific
+**/.idea
 
 # Log files
 **/npm-debug.log*
