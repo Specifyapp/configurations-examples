@@ -1,9 +1,9 @@
 const path = require('path');
-require('dotenv').config({ path: path.resolve(__dirname, '../../..', '.env') });
+require('dotenv').config({ path: path.resolve(__dirname, '..', '..', '..', '.env') });
 
 const designDataPath = 'all-design-tokens/assets';
 
-// Sort all design tokens by name before 
+// Sort all design tokens by name before
 // transforming them as CSS Custom Properties
 const commonCssCustomPropertiesParser = [
   {
@@ -139,7 +139,10 @@ textStylesRule.push({
       // properties (formats, path and file name format)
       options: {
         formats: textStylesRule[1].parsers[0].options.formats,
-        fontsPath: path.relative(`${designDataPath}/styles/variables/fonts.css`, textStylesRule[1].path),
+        fontsPath: path.relative(
+          `${designDataPath}/styles/variables/fonts.css`,
+          textStylesRule[1].path,
+        ),
         fontFamilyTransform: textStylesRule[1].parsers[0].options.fileNameFormat,
       },
     },
@@ -157,6 +160,6 @@ module.exports = {
     ...gradientsRule,
     ...measurementsRule,
     ...shadowsRule,
-    ...textStylesRule
+    ...textStylesRule,
   ],
 };
