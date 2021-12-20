@@ -14,7 +14,7 @@ This configuration helps you generate specific CSS files containing your:
 - text styles
 
 In addition it will also:
-1. Download font files in the `assets/` folder
+1. Download font files in the `public/fonts` folder
 2. Create your CSS `@font-face` declarations to import your font files
 
 ### all-design-tokens-and-assets
