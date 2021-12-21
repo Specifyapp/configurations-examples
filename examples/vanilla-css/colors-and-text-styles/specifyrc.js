@@ -8,9 +8,7 @@ module.exports = {
     {
       name: 'Design Tokens / Colors',
       path: 'public/styles/colors.css',
-      filter: {
-        types: ['color'],
-      },
+      filter: { types: ['color'] },
       parsers: [
         {
           name: 'to-css-custom-properties',
@@ -26,9 +24,7 @@ module.exports = {
     {
       name: 'Design Tokens / Fonts',
       path: 'public/fonts',
-      filter: {
-        types: ['font'],
-      },
+      filter: { types: ['font'] },
       parsers: [
         {
           name: 'convert-font',
@@ -41,9 +37,7 @@ module.exports = {
     {
       name: 'Design Tokens / Import fonts',
       path: 'public/styles/fonts.css',
-      filter: {
-        types: ['font'],
-      },
+      filter: { types: ['font'] },
       parsers: [
         {
           name: 'to-css-font-import',

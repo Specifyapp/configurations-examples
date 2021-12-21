@@ -1,97 +1,105 @@
 const path = require('path');
 require('dotenv').config({ path: path.resolve(__dirname, '..', '..', '..', '.env') });
 
-const designDataPath = 'all-design-tokens/assets';
+const publicPath = 'public';
+const fontFormats = ['woff', 'woff2', 'otf'];
+const fontsFolderName = 'fonts';
 
 // Sort all design tokens by name before
 // transforming them as CSS Custom Properties
-const commonCssCustomPropertiesParser = [
+const commonCssCustomPropertiesParsers = [
+  {
+    name: 'sort-by',
+    options: {
+      keys: ['name'],
+    },
+  },
   {
     name: 'to-css-custom-properties',
   },
 ];
 
-const colorsRule = [
+const colorRules = [
   {
     name: 'Design Tokens / Colors',
-    path: `${designDataPath}/styles/variables/colors.css`,
+    path: `${publicPath}/styles/variables/colors.css`,
     filter: {
       types: ['color'],
     },
-    parsers: commonCssCustomPropertiesParser,
+    parsers: commonCssCustomPropertiesParsers,
   },
 ];
 
-const bordersRule = [
+const borderRules = [
   {
     name: 'Design Tokens / Borders',
-    path: `${designDataPath}/styles/variables/borders.css`,
+    path: `${publicPath}/styles/variables/borders.css`,
     filter: {
       types: ['border'],
     },
-    parsers: commonCssCustomPropertiesParser,
+    parsers: commonCssCustomPropertiesParsers,
   },
 ];
 
-const depthsRule = [
+const depthRules = [
   {
     name: 'Design Tokens / Depths (Z-Index)',
-    path: `${designDataPath}/styles/variables/depths.css`,
+    path: `${publicPath}/styles/variables/depths.css`,
     filter: {
       types: ['depth'],
     },
-    parsers: commonCssCustomPropertiesParser,
+    parsers: commonCssCustomPropertiesParsers,
   },
 ];
 
-const durationsRule = [
+const durationRules = [
   {
     name: 'Design Tokens / Durations',
-    path: `${designDataPath}/styles/variables/durations.css`,
+    path: `${publicPath}/styles/variables/durations.css`,
     filter: {
       types: ['duration'],
     },
-    parsers: commonCssCustomPropertiesParser,
+    parsers: commonCssCustomPropertiesParsers,
   },
 ];
 
-const gradientsRule = [
+const gradientRules = [
   {
     name: 'Design Tokens / Gradients',
-    path: `${designDataPath}/styles/variables/gradients.css`,
+    path: `${publicPath}/styles/variables/gradients.css`,
     filter: {
       types: ['gradient'],
     },
-    parsers: commonCssCustomPropertiesParser,
+    parsers: commonCssCustomPropertiesParsers,
   },
 ];
 
-const measurementsRule = [
+const measurementRules = [
   {
     name: 'Design Tokens / Measurements',
-    path: `${designDataPath}/styles/variables/measurements.css`,
+    path: `${publicPath}/styles/variables/measurements.css`,
     filter: {
       types: ['measurement'],
     },
-    parsers: commonCssCustomPropertiesParser,
+    parsers: commonCssCustomPropertiesParsers,
   },
 ];
 
-const shadowsRule = [
+const shadowRules = [
   {
     name: 'Design Tokens / Shadows',
-    path: `${designDataPath}/styles/variables/shadows.css`,
+    path: `${publicPath}/styles/variables/shadows.css`,
     filter: {
       types: ['shadow'],
     },
-    parsers: commonCssCustomPropertiesParser,
+    parsers: commonCssCustomPropertiesParsers,
   },
 ];
 
-const textStylesRule = [
+const textStyleRules = [
   {
     name: 'Design Tokens / TextStyles',
-    path: `${designDataPath}/styles/variables/textstyles.css`,
+    path: `${publicPath}/styles/text-styles.css`,
     filter: {
       types: ['textStyle'],
     },
@@ -101,15 +109,17 @@ const textStylesRule = [
         options: {
           exclude: ['color', 'text-indent', 'vertical-align', 'text-align'],
           relativeLineHeight: true,
-          fontFamilyFormat: 'camelCase',
           genericFamily: 'serif',
         },
       },
     ],
   },
+];
+
+const fontRules = [
   {
-    name: 'Design Tokens / Fonts',
-    path: 'assets/fonts',
+    name: 'Design Tokens / Export fonts',
+    path: `${publicPath}/${fontsFolderName}`,
     filter: {
       types: ['font'],
     },
@@ -117,49 +127,41 @@ const textStylesRule = [
       {
         name: 'convert-font',
         options: {
-          formats: ['woff2', 'woff'],
-          fileNameKey: ['fontFamily', 'fontWeight'],
-          fileNameFormat: 'kebabCase',
+          formats: fontFormats,
+        },
+      },
+    ],
+  },
+  {
+    name: 'Design Tokens / CSS font imports',
+    path: `${publicPath}/styles/fonts.css`,
+    filter: {
+      types: ['font'],
+    },
+    parsers: [
+      {
+        name: 'to-css-font-import',
+        options: {
+          formats: fontFormats,
+          fontsPath: `../${fontsFolderName}`,
         },
       },
     ],
   },
 ];
 
-textStylesRule.push({
-  name: 'Design Tokens / Fonts',
-  path: `${designDataPath}/styles/variables/fonts.css`,
-  filter: {
-    types: ['font'],
-  },
-  parsers: [
-    {
-      name: 'to-css-font-import',
-      // Import our font files with the same
-      // properties (formats, path and file name format)
-      options: {
-        formats: textStylesRule[1].parsers[0].options.formats,
-        fontsPath: path.relative(
-          `${designDataPath}/styles/variables/fonts.css`,
-          textStylesRule[1].path,
-        ),
-        fontFamilyTransform: textStylesRule[1].parsers[0].options.fileNameFormat,
-      },
-    },
-  ],
-});
-
 module.exports = {
   repository: process.env.REPOSITORY,
   personalAccessToken: process.env.PERSONAL_ACCESS_TOKEN,
   rules: [
-    ...colorsRule,
-    ...bordersRule,
-    ...depthsRule,
-    ...durationsRule,
-    ...gradientsRule,
-    ...measurementsRule,
-    ...shadowsRule,
-    ...textStylesRule,
+    ...colorRules,
+    ...borderRules,
+    ...depthRules,
+    ...durationRules,
+    ...gradientRules,
+    ...measurementRules,
+    ...shadowRules,
+    ...textStyleRules,
+    ...fontRules,
   ],
 };
