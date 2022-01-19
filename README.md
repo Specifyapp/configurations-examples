@@ -32,7 +32,7 @@ However, Specify can have its configuration is JSON if:
 ## How to try configuration examples?
 To try the provided examples, you need to:
 1. [Setup a Specify repository](https://help.specifyapp.com/en/articles/4722413-create-a-repository)
-2. [Generate a personal access token](https://help.specifyapp.com/en/articles/4722408-manage-your-paersonal-access-tokens)
+2. [Generate a personal access token](https://help.specifyapp.com/en/articles/4722408-manage-your-personal-access-tokens)
 3. Clone this repo
 4. Create a `.env` file from the `.env.example` in the root directory: `cp .env.example .env`
 5. Update the new `.env` file by:
