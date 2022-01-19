@@ -41,5 +41,5 @@ To try the provided examples, you need to:
 
 You can now try all examples from this repository with a single personal access token.
 
-## Environment examples available
+## Other available environment examples
 - [Tailwindcss / Windicss](https://github.com/Specifyapp/configurations-examples/tree/main/examples/tailwind-windi)
