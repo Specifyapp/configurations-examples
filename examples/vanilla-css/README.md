@@ -18,7 +18,7 @@ In addition it will also:
 2. Create your CSS `@font-face` declarations to import your font files
 
 ### all-design-tokens-and-assets
-This configuration is the most complete one. It is written JavaScript and will get the Specify repository and the personal access token through environment variables.
+This configuration is the most complete one. It is written in JavaScript and will get the Specify repository and the personal access token through environment variables.
 
 This configuration helps you generate specific CSS files containing your:
 - colors
