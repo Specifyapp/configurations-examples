@@ -1,0 +1,140 @@
+{
+  "repository": "[YOUR_REPOSITORY_CONTAINING_GENERAL_DESIGN_DATA]",
+  "personalAccessToken": "[YOUR_ACCESS_TOKEN]",
+  "rules": [
+    {
+      "name": "Design Tokens / Depths",
+      "path": "color-themes-json/assets/styles/depths.css",
+      "filter": {
+        "types": ["depth"]
+      },
+      "parsers": [
+        {
+          "name": "sort-by",
+          "options": {
+            "keys": ["name"]
+          }
+        },
+        {
+          "name": "to-css-custom-properties"
+        }
+      ]
+    },
+    {
+      "name": "Design Tokens / Durations",
+      "path": "color-themes-json/assets/styles/durations.css",
+      "filter": {
+        "types": ["duration"]
+      },
+      "parsers": [
+        {
+          "name": "sort-by",
+          "options": {
+            "keys": ["name"]
+          }
+        },
+        {
+          "name": "to-css-custom-properties"
+        }
+      ]
+    },
+    {
+      "name": "Design Tokens / Measurements",
+      "path": "color-themes-json/assets/styles/measurements.css",
+      "filter": {
+        "types": ["measurement"]
+      },
+      "parsers": [
+        {
+          "name": "sort-by",
+          "options": {
+            "keys": ["name"]
+          }
+        },
+        {
+          "name": "to-css-custom-properties"
+        }
+      ]
+    },
+    {
+      "name": "Design Tokens / Fonts",
+      "path": "color-themes-json/assets/styles/fonts.css",
+      "filter": {
+        "types": ["font"]
+      },
+      "parsers": [
+        {
+          "name": "to-css-font-import",
+          "options": {
+            "formats": ["woff2", "woff"],
+            "fontsPath": "../fonts/"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Design Tokens / Fonts",
+      "path": "color-themes-json/assets/fonts",
+      "filter": {
+        "types": ["font"]
+      },
+      "parsers": [
+        {
+          "name": "convert-font",
+          "options": {
+            "formats": ["woff2", "woff"],
+            "fileNameKey": ["fontPostScriptName"]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Design Tokens / TextStyles",
+      "path": "color-themes-json/assets/styles/text-styles.css",
+      "filter": {
+        "types": ["textStyle"]
+      },
+      "parsers": [
+        {
+          "name": "to-css-text-style",
+          "options": {
+            "exclude": ["color", "text-indent", "vertical-align", "text-align"],
+            "relativeLineHeight": true,
+            "genericFamily": "serif"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Icons",
+      "path": "color-themes-json/assets/icons",
+      "filter": {
+        "types": ["vector"]
+      },
+      "parsers": [
+        {
+          "name": "svgo",
+          "options": {
+            "svgo": {
+              "plugins": [
+                {
+                  "removeDimensions": true
+                },
+                {
+                  "removeAttrs": {
+                    "attrs": "*:(fill|stroke)"
+                  }
+                },
+                {
+                  "addAttributesToSVGElement": {
+                    "attributes": ["width=\"1em\"", "height=\"1em\"", "focusable=\"false\""]
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

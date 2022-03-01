@@ -1,0 +1,12 @@
+{
+  "name": "color-themes",
+  "version": "1.0.0",
+  "scripts": {
+    "generate:theme": "specify pull -C color-themes/general.js; specify pull -C color-themes/light-theme.js; specify extract -C color-themes/dark-theme.js;",
+    "generate:theme-json": "specify pull -C color-themes-json/general.json; specify pull -C color-themes-json/light-theme.json; specify extract -C color-themes-json/dark-theme.json;"
+  },
+  "dependencies": {
+    "@specifyapp/cli": "^0.0.56",
+    "dotenv": "^10.0.0"
+  }
+}

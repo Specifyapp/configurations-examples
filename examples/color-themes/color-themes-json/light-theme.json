@@ -1,0 +1,98 @@
+{
+  "repository": "[YOUR_REPOSITORY_CONTAINING_LIGHT_DESIGN_TOKENS]",
+  "personalAccessToken": "[YOUR_ACCESS_TOKEN]",
+  "rules": [
+    {
+      "name": "Colors / Light Theme",
+      "path": "color-themes-json/assets/styles/colors/light-theme.css",
+      "filter": {
+        "types": ["color"]
+      },
+      "parsers": [
+        {
+          "name": "sort-by",
+          "options": {
+            "keys": ["name"]
+          }
+        },
+        {
+          "name": "to-css-custom-properties",
+          "options": {
+            "formatConfig": {
+              "selector": ":root[data-theme='light']"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Shadows / Light Theme",
+      "path": "color-themes-json/assets/styles/shadows/light-theme.css",
+      "filter": {
+        "types": ["shadow"]
+      },
+      "parsers": [
+        {
+          "name": "sort-by",
+          "options": {
+            "keys": ["name"]
+          }
+        },
+        {
+          "name": "to-css-custom-properties",
+          "options": {
+            "formatConfig": {
+              "selector": ":root[data-theme='light']"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Gradients / Light Theme",
+      "path": "color-themes-json/assets/styles/gradients/light-theme.css",
+      "filter": {
+        "types": ["gradient"]
+      },
+      "parsers": [
+        {
+          "name": "sort-by",
+          "options": {
+            "keys": ["name"]
+          }
+        },
+        {
+          "name": "to-css-custom-properties",
+          "options": {
+            "formatConfig": {
+              "selector": ":root[data-theme='light']"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Borders / Light Theme",
+      "path": "color-themes-json/assets/styles/borders/light-theme.css",
+      "filter": {
+        "types": ["border"]
+      },
+      "parsers": [
+        {
+          "name": "sort-by",
+          "options": {
+            "keys": ["name"]
+          }
+        },
+        {
+          "name": "to-css-custom-properties",
+          "options": {
+            "formatConfig": {
+              "selector": ":root[data-theme='light']"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
