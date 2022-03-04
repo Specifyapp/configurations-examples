@@ -9,6 +9,5 @@
   "dependencies": {
     "@specifyapp/cli": "^0.0.56",
     "dotenv": "^10.0.0"
-  },
-  "devDependencies": {}
+  }
 }

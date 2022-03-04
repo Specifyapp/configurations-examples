@@ -1,6 +1,6 @@
 {
   "repository": "[YOUR_REPOSITORY]",
-  "personalAccessToken": "[YOUR_ACCESS_TOKEN]",
+  "personalAccessToken": "[YOUR_PERSONAL_ACCESS_TOKEN]",
   "rules": [
     {
       "name": "Design Tokens / Theme",

@@ -1,0 +1,216 @@
+{
+  "repository": "[YOUR_REPOSITORY]",
+  "rules": [
+    {
+      "name": "Design Tokens / Borders",
+      "path": "public/styles/variables/borders.css",
+      "filter": {
+        "types": ["border"]
+      },
+      "parsers": [
+        {
+          "name": "sort-by",
+          "options": {
+            "keys": ["name"]
+          }
+        },
+        {
+          "name": "to-css-custom-properties"
+        }
+      ]
+    },
+    {
+      "name": "Design Tokens / Colors",
+      "path": "public/styles/variables/colors.css",
+      "filter": {
+        "types": ["color"]
+      },
+      "parsers": [
+        {
+          "name": "sort-by",
+          "options": {
+            "keys": ["name"]
+          }
+        },
+        {
+          "name": "to-css-custom-properties",
+          "options": {
+            "formatTokens":{
+              "color": "hsl"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Design Tokens / Depths",
+      "path": "public/styles/variables/depths.css",
+      "filter": {
+        "types": ["depth"]
+      },
+      "parsers": [
+        {
+          "name": "sort-by",
+          "options": {
+            "keys": ["name"]
+          }
+        },
+        {
+          "name": "to-css-custom-properties"
+        }
+      ]
+    },
+    {
+      "name": "Design Tokens / Durations",
+      "path": "public/styles/variables/durations.css",
+      "filter": {
+        "types": ["duration"]
+      },
+      "parsers": [
+        {
+          "name": "sort-by",
+          "options": {
+            "keys": ["name"]
+          }
+        },
+        {
+          "name": "to-css-custom-properties"
+        }
+      ]
+    },
+    {
+      "name": "Design Tokens / Gradients",
+      "path": "public/styles/variables/gradients.css",
+      "filter": {
+        "types": ["gradient"]
+      },
+      "parsers": [
+        {
+          "name": "sort-by",
+          "options": {
+            "keys": ["name"]
+          }
+        },
+        {
+          "name": "to-css-custom-properties"
+        }
+      ]
+    },
+    {
+      "name": "Design Tokens / Measurements",
+      "path": "public/styles/variables/measurements.css",
+      "filter": {
+        "types": ["measurement"]
+      },
+      "parsers": [
+        {
+          "name": "sort-by",
+          "options": {
+            "keys": ["name"]
+          }
+        },
+        {
+          "name": "to-css-custom-properties"
+        }
+      ]
+    },
+    {
+      "name": "Design Tokens / Fonts",
+      "path": "public/styles/fonts.css",
+      "filter": {
+        "types": ["font"]
+      },
+      "parsers": [
+        {
+          "name": "to-css-font-import",
+          "options": {
+            "formats": ["woff2", "woff"],
+            "fontsPath": "../fonts/"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Design Tokens / Fonts",
+      "path": "public/assets/fonts",
+      "filter": {
+        "types": ["font"]
+      },
+      "parsers": [
+        {
+          "name": "convert-font",
+          "options": {
+            "formats": ["woff2", "woff"],
+            "fileNameKey": ["fontPostScriptName"]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Design Tokens / TextStyles",
+      "path": "public/styles/text-styles.css",
+      "filter": {
+        "types": ["textStyle"]
+      },
+      "parsers": [
+        {
+          "name": "to-css-text-style",
+          "options": {
+            "exclude": ["color", "text-indent", "vertical-align", "text-align"],
+            "relativeLineHeight": true,
+            "genericFamily": "serif"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Design Tokens / Shadows",
+      "path": "public/styles/variables/shadows.css",
+      "filter": {
+        "types": ["shadow"]
+      },
+      "parsers": [
+        {
+          "name": "sort-by",
+          "options": {
+            "keys": ["name"]
+          }
+        },
+        {
+          "name": "to-css-custom-properties"
+        }
+      ]
+    },
+    {
+      "name": "Icons",
+      "path": "public/assets/icons",
+      "filter": {
+        "types": ["vector"]
+      },
+      "parsers": [
+        {
+          "name": "svgo",
+          "options": {
+            "svgo": {
+              "plugins": [
+                {
+                  "removeDimensions": true
+                },
+                {
+                  "removeAttrs": {
+                    "attrs": "*:(fill|stroke)"
+                  }
+                },
+                {
+                  "addAttributesToSVGElement": {
+                    "attributes": ["width=\"1em\"", "height=\"1em\"", "focusable=\"false\""]
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

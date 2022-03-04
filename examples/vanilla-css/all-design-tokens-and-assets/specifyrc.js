@@ -1,9 +1,9 @@
 const path = require('path');
 require('dotenv').config({ path: path.resolve(__dirname, '..', '..', '..', '.env') });
 
-const publicPath = 'public';
-const fontFormats = ['woff', 'woff2', 'otf'];
-const fontsFolderName = 'fonts';
+const publicPath = 'all-design-tokens-and-assets/public';
+const fontFormats = ['woff', 'woff2'];
+const fontsFolder = 'assets/fonts';
 
 // Sort all design tokens by name before
 // transforming them as CSS Custom Properties
@@ -19,7 +19,7 @@ const commonCssCustomPropertiesParsers = [
   },
 ];
 
-const colorRules = [
+const colorRule = [
   {
     name: 'Design Tokens / Colors',
     path: `${publicPath}/styles/variables/colors.css`,
@@ -30,7 +30,7 @@ const colorRules = [
   },
 ];
 
-const borderRules = [
+const borderRule = [
   {
     name: 'Design Tokens / Borders',
     path: `${publicPath}/styles/variables/borders.css`,
@@ -41,7 +41,7 @@ const borderRules = [
   },
 ];
 
-const depthRules = [
+const depthRule = [
   {
     name: 'Design Tokens / Depths (Z-Index)',
     path: `${publicPath}/styles/variables/depths.css`,
@@ -52,7 +52,7 @@ const depthRules = [
   },
 ];
 
-const durationRules = [
+const durationRule = [
   {
     name: 'Design Tokens / Durations',
     path: `${publicPath}/styles/variables/durations.css`,
@@ -63,7 +63,7 @@ const durationRules = [
   },
 ];
 
-const gradientRules = [
+const gradientRule = [
   {
     name: 'Design Tokens / Gradients',
     path: `${publicPath}/styles/variables/gradients.css`,
@@ -74,7 +74,7 @@ const gradientRules = [
   },
 ];
 
-const measurementRules = [
+const measurementRule = [
   {
     name: 'Design Tokens / Measurements',
     path: `${publicPath}/styles/variables/measurements.css`,
@@ -85,7 +85,7 @@ const measurementRules = [
   },
 ];
 
-const shadowRules = [
+const shadowRule = [
   {
     name: 'Design Tokens / Shadows',
     path: `${publicPath}/styles/variables/shadows.css`,
@@ -96,7 +96,7 @@ const shadowRules = [
   },
 ];
 
-const textStyleRules = [
+const textStyleRule = [
   {
     name: 'Design Tokens / TextStyles',
     path: `${publicPath}/styles/text-styles.css`,
@@ -116,10 +116,10 @@ const textStyleRules = [
   },
 ];
 
-const fontRules = [
+const fontRule = [
   {
     name: 'Design Tokens / Export fonts',
-    path: `${publicPath}/${fontsFolderName}`,
+    path: `${publicPath}/${fontsFolder}`,
     filter: {
       types: ['font'],
     },
@@ -143,7 +143,48 @@ const fontRules = [
         name: 'to-css-font-import',
         options: {
           formats: fontFormats,
-          fontsPath: `../${fontsFolderName}`,
+          fontsPath: `../${fontsFolder}`,
+        },
+      },
+    ],
+  },
+];
+
+const vectorsRule = [
+  {
+    name: 'Icons',
+    path: `${publicPath}/assets/icons`,
+    filter: {
+      types: ['vector'],
+    },
+    parsers: [
+      {
+        name: 'svgo',
+        options: {
+          svgo: {
+            plugins: [
+              {
+                removeDimensions: true,
+              },
+              {
+                removeAttrs: {
+                  attrs: '*:(fill|stroke)',
+                },
+              },
+              {
+                addAttributesToSVGElement: {
+                  // 1. Don't know why, can't use the object format
+                  // on the attributes prop.
+                  // 2. The svg also has a focusable attribute set
+                  // to false which prevents the icon itself
+                  // from receiving focus in IE, because otherwise
+                  // the button will have two Tab stops, which is
+                  // not the expected or desired behavior.
+                  attributes: ['width="1em"', 'height="1em"', 'focusable="false"'],
+                },
+              },
+            ],
+          },
         },
       },
     ],
@@ -154,14 +195,15 @@ module.exports = {
   repository: process.env.REPOSITORY,
   personalAccessToken: process.env.PERSONAL_ACCESS_TOKEN,
   rules: [
-    ...colorRules,
-    ...borderRules,
-    ...depthRules,
-    ...durationRules,
-    ...gradientRules,
-    ...measurementRules,
-    ...shadowRules,
-    ...textStyleRules,
-    ...fontRules,
+    ...colorRule,
+    ...borderRule,
+    ...depthRule,
+    ...durationRule,
+    ...gradientRule,
+    ...measurementRule,
+    ...shadowRule,
+    ...textStyleRule,
+    ...fontRule,
+    ...vectorsRule,
   ],
 };

@@ -7,7 +7,7 @@ Some examples are more complex than others. Feel free to update them as you wish
 
 ## Available examples
 ### colors-and-text-styles
-This configuration is the most simple one. It is written JavaScript and will get the Specify repository and the personal access token through environment variables.
+This configuration is the most simple one. It is written JavaScript and will get the Specify repository and the personal access token from the environment variables in the `.env` file located at the root of this repository.
 
 This configuration helps you generate specific CSS files containing your:
 - colors
@@ -18,7 +18,7 @@ In addition it will also:
 2. Create your CSS `@font-face` declarations to import your font files
 
 ### all-design-tokens-and-assets
-This configuration is the most complete one. It is written in JavaScript and will get the Specify repository and the personal access token through environment variables.
+This configuration is the most complete one. It is written JavaScript and will get the Specify repository and the personal access token from the environment variables in the `.env` file located at the root of this repository.
 
 This configuration helps you generate specific CSS files containing your:
 - colors
