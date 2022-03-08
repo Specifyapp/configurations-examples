@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "scripts": {
     "generate:theme": "specify pull -C theme/specifyrc.js",
-    "generate:theme-fonts": "specify pull -C theme-with-fonts/specifyrc.js",
-    "generate:theme-fonts-json": "specify pull -C theme-with-fonts-json/specifyrc.json"
+    "generate:theme-assets": "specify pull -C theme-with-assets/specifyrc.js",
+    "generate:theme-assets-json": "specify pull -C theme-with-assets-json/specifyrc.json"
   },
   "dependencies": {
     "@specifyapp/cli": "^0.0.56",

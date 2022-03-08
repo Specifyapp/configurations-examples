@@ -21,13 +21,13 @@ The `/examples` directory contains a directory for each environment. Those examp
 All examples are detailed by their own `README.md`.
 
 ## What is the .env file?
-We recommend you to store and use your personal access token thanks to an `.env` file.
+We recommend you to store and use your personal access token from an `.env` file.
 
 ℹ️ You will only be able to use this `.env` file inside a Specify configuration written in JavaScript.
 
-However, Specify can have its configuration is JSON if:
-- You want to
-- Your configuration is meant to be used inside a Github repository
+However, Specify can have its configuration is JSON in the following cases:
+- If you want to
+- If your configuration is meant to be read used inside a Github repository
 
 ## How to try configuration examples?
 To try the provided examples, you need to:
@@ -43,3 +43,5 @@ You can now try all examples from this repository with a single personal access 
 
 ## Other available environment examples
 - [Tailwindcss / Windicss](https://github.com/Specifyapp/configurations-examples/tree/main/examples/tailwind-windi)
+- [Vanilla CSS](https://github.com/Specifyapp/configurations-examples/tree/main/examples/vanilla-css)
+- [Color themes](https://github.com/Specifyapp/configurations-examples/tree/main/examples/color-themes)

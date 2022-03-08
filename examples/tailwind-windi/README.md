@@ -7,38 +7,38 @@ Some examples are more complex than others. Feel free to update them as you wish
 
 ## Available examples
 - `theme`: only generates the theme file for Tailwind / Windi
-- `theme-with-fonts`:
+- `theme-with-assets`:
   1. Generates the theme file
   2. Downloads and creates the font files
   3. Creates the CSS file containing your `@font-face` import rules for your font assets
-- `theme-with-fonts-json`: Same as `theme-with-fonts` but written in `json` format
-- `theme-with-fonts-github`: Same as `theme-with-fonts-json` but with Github specific options
+- `theme-with-assets-json`: Same as `theme-with-assets` but written in `json` format
+- `theme-with-assets-github`: Same as `theme-with-assets-json` but with Github specific options
 
 ## How to use the examples
 
-### theme / theme-with-fonts
+### theme / theme-with-assets
 
 1. Create a `.env` file from the `.env.example` in the root directory: `cp .env.example .env`
 2. Update the new `.env` file by:
    1. Setting the Specify repository you're pulling design data from
    2. Setting your personal access token
 3. In `examples/tailwind-windi`, run `npm i` or `yarn`
-4. In the same directory, run `npm run generate:theme` or `npm run generate:theme-fonts` (`yarn generate:theme` or `yarn generate:theme-fonts`)
+4. In the same directory, run `npm run generate:theme` or `npm run generate:theme-assets` (`yarn generate:theme` or `yarn generate:theme-assets`)
 
 All the files will appear in the directory of the example you have selected.
 
-### theme-with-fonts-json
+### theme-with-assets-json
 
-1. In the `examples/tailwind-windi/theme-with-fonts-json`, complete the data of repository and personal access token
+1. In the `examples/tailwind-windi/theme-with-assets-json`, complete the data of repository and personal access token
 2. In `examples/tailwind-windi`, launch `npm i` or `yarn`
-3. In the same directory launch `npm run generate:theme-fonts-json` (`yarn generate:theme-fonts-json`)
+3. In the same directory launch `npm run generate:theme-assets-json` (`yarn generate:theme-assets-json`)
 
-All the files will appear in the directory `theme-with-fonts-json`.
+All the files will appear in the directory `theme-with-assets-json`.
 
-### theme-with-fonts-github
+### theme-with-assets-github
 1. Check Specify has access to your GitHub repository. See [our dedicated article](https://help.specifyapp.com/en/articles/4722440-add-github-as-a-destination).
 2. Create a `.specifyrc.json` in your GitHub repository set as a destination to your Specify repository.
-3. Paste the content of the `theme-with-fonts-github/.specifyrc.json` in it.
+3. Paste the content of the `theme-with-assets-github/.specifyrc.json` in it.
 4. A pull request will be created by Specify containing your design tokens and assets.
 
 ## From example to project
@@ -53,3 +53,4 @@ To do this:
 - [to-tailwind](https://github.com/Specifyapp/parsers/tree/master/parsers/to-tailwind)
 - [convert-font](https://github.com/Specifyapp/parsers/tree/master/parsers/convert-font)
 - [to-css-font-import](https://github.com/Specifyapp/parsers/tree/master/parsers/to-css-font-import)
+- [svgo](https://github.com/Specifyapp/parsers/tree/master/parsers/svgo)
